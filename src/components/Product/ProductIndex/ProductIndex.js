@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import GlobalContext from '../../../state/GlobalContext';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -12,13 +13,16 @@ const useStyles = makeStyles({
     maxWidth: 345,
   },
 });
-export const ProductIndex = ({ products }) => {
+export const ProductIndex = () => {
+
+  const {products} = useContext(GlobalContext);
+
   const classes = useStyles();
   return (
     <Grid container >
       {products.length > 0 ? (
         products.map((product) => (
-        <Grid container item xs={12} md={3} lg={3}>
+        <Grid container item xs={12} md={3} lg={3} spacing={2}>
           <Card className={classes.root}>
             <Link to={`/product/${product.slug}`}>
               <CardActionArea>
