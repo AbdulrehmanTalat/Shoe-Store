@@ -440,4 +440,4 @@ export const products = [
       slug: "michael-feburary-sk8-hi",
     },
   ];
-  
+  export default products;
